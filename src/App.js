@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+
+  const [message, setMessage] = useState('breathe in');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMessage(message => message === 'breathe in' ? 'breathe out' : 'breathe in');
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={"circle " + (message === 'breathe in' ? 'grow' : 'shrink')}>
+        <div className="circle-inner">
+          <span>{message}</span> 
+        </div>
+      </div>
     </div>
   );
 }

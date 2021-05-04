@@ -1,38 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+
+* {
+  font-family: 'Dosis', sans-serif;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  justify-content: center;
+}
+
+.circle {
+  font-size: 20px;
+  border: 5px solid #60dada;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
+  margin-top: 25px;
+  transform: scale(1);
 }
 
-.App-link {
-  color: #61dafb;
+.circle-inner {
+  width: 93%;
+  height: 93%;
+  position: absolute;
+  background: transparent;
+  border: 7px solid #cbefef;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
+.circle.grow {
+  animation: grow 3s linear forwards;
+}
+
+@keyframes grow {
   from {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
+
   to {
-    transform: rotate(360deg);
+    transform: scale(1.2);
+  }
+}
+
+.circle.shrink {
+  animation: shrink 3s linear forwards;
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
   }
 }
