@@ -6,7 +6,7 @@ function App() {
   const [message, setMessage] = useState('breathe in');
   
   // Time
-  const [time, setTime] = useState(120);
+  const [time, setTime] = useState(60);
   let seconds = time % 60;
   let minutes = Math.floor(time / 60);
   minutes = minutes.toString().length === 1 ? "0" + minutes : minutes;
